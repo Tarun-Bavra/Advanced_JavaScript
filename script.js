@@ -1413,43 +1413,175 @@
 // course.signup().selectCourse("MERN").features().startCourse().getPlaced();
 // course.signup().selectCourse("Java").features().startCourse().getPlaced();
 
-//// Demonstrate function chaining with 5 functions. Initial value named number
-//// in initial fn from which you make object.
-//// In first fn calling, make the number tripled.
-//// In second fn calling, minus the number by 2.
-//// In third fn calling, divide the number by 5.
-//// In fourth fn calling, add 56 to the number.
-//// In fifth fn calling take the square root of the number.
-//// Print the number in every fn.Numbe=10
+// //// Demonstrate function chaining with 5 functions. Initial value named number
+// //// in initial fn from which you make object.
+// //// In first fn calling, make the number tripled.
+// //// In second fn calling, minus the number by 2.
+// //// In third fn calling, divide the number by 5.
+// //// In fourth fn calling, add 56 to the number.
+// //// In fifth fn calling take the square root of the number.
+// //// Print the number in every fn. Let Number = 122;
 
-function Number(n) {
-  this.num = n;
-}
-Number.prototype.triple = function () {
-  this.num = this.num * 3;
-  console.log(this.num);
-  return this;
-};
-Number.prototype.subtract2 = function () {
-  this.num = this.num - 2;
-  console.log(this.num);
-  return this;
-};
-Number.prototype.divideBy5 = function () {
-  this.num = this.num / 5;
-  console.log(this.num);
-  return this;
-};
-Number.prototype.add56 = function () {
-  this.num = this.num + 56;
-  console.log(this.num);
-  return this;
-};
-Number.prototype.sqRoot = function () {
- this.num = Math.sqrt(num1);
-  console.log(num1);
-  return this;
-};
+// function Number(n) {
+//   this.value = n;
+// }
+// Number.prototype.triple = function () {
+//   this.value= this.value* 3;
+//   console.log(this.value);
+//   return this;
+// };
+// Number.prototype.subtract2 = function () {
+//   this.value= this.value- 2;
+//   console.log(this.value);
+//   return this;
+// };
+// Number.prototype.divideBy5 = function () {
+//   this.value= this.value/ 5;
+//   console.log(this.value);
+//   return this;
+// };
+// Number.prototype.add56 = function () {
+//   this.value= this.value+ 56;
+//   console.log(this.value);
+//   return this;
+// };
+// Number.prototype.sqRoot = function () {
+//  this.value = Math.sqrt(this.value);
+//   console.log(this.value);
+//   return this;
+// };
 
-let num1 = new Number(10);
-num1.triple().subtract2().divideBy5().add56().sqRoot();
+// let num = new Number(122);
+// num.triple().subtract2().divideBy5().add56().sqRoot();
+
+//// DO you know everything in javascript is an Object. Can you prove it?This was asked
+//// by facebook london, CTC:70 Lakh
+
+// //// Make a function and make a callback fn. In the main function pass
+// //// 2 numbers, multiply them and print them in callback
+
+// function just(a, b, callback) {
+//   ans = a * b;
+//   callback();
+// }
+// function print() {
+//   console.log(ans);
+// }
+// just(2, 3, print);
+
+//// Make a main fn, pass two numbers in it with a callback fn.
+//// In that callback fn add the numbers and pass result to another callback fn.
+/// In that callback fn double the result and pass it to another callback fn.
+//// In that callback fn divide it by 3 and pass it to another callback fn.
+//// In that callback fn take sqrt of that number and pass it to another callback fn
+//// and print it.
+
+// function main(a, b, callbackAdd) {
+//   callbackAdd(a, b);
+// }
+
+// function callbackAdd(x, y) {
+//   sum = x + y;
+//   console.log("sum", sum);
+//   callbackDouble(sum);
+// }
+// function callbackDouble(s) {
+//   d = s * 2;
+//   console.log("double", d);
+//   callbackDivide(d);
+// }
+// function callbackDivide(d) {
+//   divide = d / 3;
+//   console.log("division", divide);
+//   callbackSqrt(divide);
+// }
+// function callbackSqrt(sq) {
+//   sqrt = Math.sqrt(sq);
+//   print(sqrt);
+// }
+// function print(sq) {
+//   console.log("sqrt", sq);
+// }
+// main(2, 3, callbackAdd); ////this code was written by me which is not correct I think ,
+// //// below is the correct code given by instructor from one of the student
+
+//////////
+// function fun(num1, num2, callback) {
+//   let sum = num1 + num2;
+//   callback(sum, divide);//double(divide)
+// }
+// function double(res, callback) {
+//   let ans = res * 2;
+//   callback(ans, squareRoot);//divide(squareRoot)
+// }
+// function divide(res, callback) {
+//   let ans = res / 3;
+//   callback(ans, print);//squareRoot(print)
+// }
+// function squareRoot(res, callback) {
+//   let ans = Math.sqrt(res);
+//   callback(ans);//print()
+// }
+// function print(res) {
+//   console.log(res);
+// }
+// fun(5, 5, double);
+
+// /////// experiment with the following changes
+// function fun(num1, num2, double) {
+//   let sum = num1 + num2;
+//   double(sum, divide);//double(divide)
+// }
+// function double(res, callback) {
+//   let ans = res * 2;
+//   divide(ans, squareRoot);//divide(squareRoot)
+// }
+// function divide(res, callback) {
+//   let ans = res / 3;
+//   squareRoot(ans, print);//squareRoot(print)
+// }
+// function squareRoot(res, callback) {
+//   let ans = Math.sqrt(res);
+//   print(ans);//print()
+// }
+// function print(res) {
+//   console.log(res);
+// }
+// fun(5, 5, double);///And yes it is working fine. Think why?I think it is directly
+// ////calling by function name .No use of callback parameter in this case.
+
+// ////experiment by changing the word callback by same fn name.see what happens
+// function fun(num1, num2, double) {
+//   let sum = num1 + num2;
+//   double(sum, divide);//double(divide)
+// }
+// function double(res, divide) {
+//   console.log(divide)
+//   let ans = res * 2;
+//   divide(ans, squareRoot);//divide(squareRoot)
+// }
+// function divide(res,squareRoot) {
+//   let ans = res / 3;
+//   squareRoot(ans, print);//squareRoot(print)
+// }
+// function squareRoot(res, print) {
+//   let ans = Math.sqrt(res);
+//   print(ans);//print()
+// }
+// function print(res) {
+//   console.log(res);
+// }
+// fun(5, 5, double);
+// //////this is also working fine . Think why?
+
+// //// Write a function named fetchData that simulates using setTimeout and calls
+// //// a callback function with printing "Data received" after two seconds.
+
+// function fetchData(fun) {
+//   setTimeout(() => {
+//     fun("Data received");
+//   }, 2000);
+// }
+// fetchData((data) => {
+//   console.log(data);
+// });
