@@ -1585,3 +1585,667 @@
 // fetchData((data) => {
 //   console.log(data);
 // });
+
+//// Create a function named processArray that takes an array and a callback
+//// function as parameters.The callback function should be called to sum each
+//// element in a result in the array.Then print that result after two seconds.
+// function processArray(arr, callback) {
+//   setTimeout(() => {
+//     callback(arr);
+//   }, 2000);
+// }
+// const parameters = (arr) => {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     sum = sum + arr[i];
+//   }
+//   console.log(sum);
+// };
+
+// // processArray([1, 5, 8, 3, 9], parameters);////this is the code written by me
+// ////// below is the code by instructor written by one of the student
+// function processArray(arr, callback) {
+//   setTimeout(function () {
+//     const sum = arr.reduce(function (acc, currentValue) {
+//       return acc + currentValue;
+//     }, 0);
+//     callback(sum);
+//   }, 2000);
+// }
+// processArray([1, 2, 3, 4, 5], function (res) {
+//   console.log(res);
+// });
+
+// //// Promises
+// let promise = new Promise(function (resolve, reject) {
+//   resolve("batman");
+
+// });
+
+// promise.then(
+//   function (successMessage) {
+//     console.log(successMessage);
+//   },
+//   function (errorMessage) {
+//     console.log(errorMessage);
+//   }
+// );
+
+// ////Make a promise. Resolve it and print the resolved status after 3 seconds
+// let promise = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     resolve("promise resolved");
+//   }, 3000);
+// });
+// promise.then(
+//   function (successMessage) {
+//     console.log(successMessage);
+//   },
+//   function (errorMessage) {
+//     console.log(errorMessage);
+//   }
+// );
+
+// //// Change all normal functions in above code to fat arrow functions
+
+// let promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("promise resolved");
+//   }, 3000);
+// });
+// promise.then(
+//   (successMessage) => {
+//     console.log(successMessage);
+//   },
+//   (errorMessage) => {
+//     console.log(errorMessage);
+//   }
+// );
+
+// //// Make a promise.Do some mathematical comparision  in it using if-else like
+// //// if the number%2==0 ,it is even else odd. And
+// //// resolve the promise.And then print "promise resolved".
+// let promise = new Promise((resolve, reject) => {
+//   resolve(22);
+// });
+// promise.then(
+//   (num) => {
+//     if (num % 2 == 0) {
+//       console.log("promise resolved and number is even");
+//     } else {
+//       console.log("promise is resolved and number is odd");
+//     }
+//   },
+//   (errorMessage) => {
+//     console.log(errorMessage);
+//   }
+// );
+
+// ////Microsoft interview question asked to my mentor in frontend interview
+// //// Make a promise such a way that it sometimes resolves and sometimes
+// //// rejected. If resolved print "resolved",if rejected print "rejected".
+// //// Use fat arrow functions.
+// let promise = new Promise((resolve, reject) => {
+//   //sometimes resolve,sometimes reject
+//   let num = Math.floor(Math.random() * 100);
+//   if (num % 2 == 0) {
+//     resolve("resolved");
+//   } else {
+//     reject("rejected");
+//   }
+// });
+
+// promise.then(
+//   (successMessage) => {
+//     console.log(successMessage);
+//   },
+//   (errorMessage) => {
+//     console.log(errorMessage);
+//   }
+// );
+
+// //// .catch() method
+
+// let promise = new Promise((resolve, reject) => {
+//   //sometimes resolve,sometimes reject
+//   let num = Math.floor(Math.random() * 100);
+//   if (num % 2 == 0) {
+//     resolve("resolved");
+//   } else {
+//     reject("rejected");
+//   }
+// });
+
+// promise.then(
+//   (successMessage) => {
+//     console.log(successMessage);
+//   }
+// )
+// .catch((errorMessage)=>{
+// console.log(errorMessage)
+// })
+
+// // //// Convert the below code into a code which is using fat arrow function and
+// // //// .catch() method.
+// // ////The code starts here:
+// // function myDisplay(some) {
+// //   console.log(some);
+// // }
+// // let myPromise = new Promise(function (resolve, reject) {
+// //   let x = 0;
+// //   if (x == 0) {
+// //     resolve("OK");
+// //   } else {
+// //     reject("Error");
+// //   }
+// // });
+
+// // myPromise.then(
+// //   function (value) {
+// //     myDisplay(value);
+// //   },
+// //   function (error) {
+// //     myDisplay(error);
+// //   }
+// // );
+// // ////the code ends here.Convert it.
+// /////solution:
+// let promise = new Promise((resolve,reject)=>{
+// let x=0;
+// if(x==0){
+//   resolve("Ok")
+// }
+// else{
+//   reject("error")
+// }
+// })
+// promise.then((successMessage)=>{
+// console.log(successMessage)
+// })
+// .catch((errorMessage)=>{
+//   console.log(errorMessage)
+// })
+
+////Make a promise such that it sometimes resolves and sometimes it rejects.
+////It should take 3 seconds delay to resolve and it should take 4 seconds delay
+//// to reject.On resolve print "resolved" 3 times using a loop.On reject print
+//// "reject" 4 times.Use fat arrow functions with .cath() implementation.
+
+// let promise = new Promise((resolve, reject) => {
+//   let num = Math.floor(Math.random() * 100);
+//   if (num % 2 == 0) {
+//     setTimeout(() => {
+//       resolve("Resolved");
+//     }, 3000);
+//   } else {
+//     setTimeout(() => {
+//       reject("Reject");
+//     }, 4000);
+//   }
+// });
+// promise
+//   .then((successMessage) => {
+//     for (let i = 0; i < 3; i++) {
+//       console.log(successMessage);
+//     }
+//   })
+//   .catch((errorMessage) => {
+//     for (let i = 0; i < 4; i++) {
+//       console.log(errorMessage);
+//     }
+//   });
+
+// ////Promise Chaining
+// let promise = new Promise((resolve, reject) => {
+//   resolve("Hello Javascript");
+// });
+// promise
+//   .then(function (result1) {
+//     console.log(result1);
+//     return new Promise((resolve, reject) => {
+//       reject("Goku is awesome");
+//     });
+//   })
+//   .then((result2) => {
+//     console.log(result2);
+//     return "Hey!";
+//   })
+//   .then((result3) => {
+//     console.log(result3);
+//     return "Yupp";
+//   })
+//   .then((result4) => {
+//     console.log(result4);
+//     return "Hi";
+//   })
+//   .catch((error) => {
+//     console.log("some error")
+//   });
+
+// //// Make a fn , pass a number in it.Then make a promise considering that number
+// //// inside that fn.
+// //// Then increment the number in the first .then by 2
+// //// Then increment the number in the fist .then by 3
+// //// Then increment the number in the fist .then by 4
+// //// Then increment the number in the fist .then by 5
+// //// Then increment the number in the fist .then by 6
+// //// And finally attach .catch
+
+// function favouriteNumber(num) {
+//   return new Promise((resolve, reject) => {
+//     if (typeof num === "number") {
+//       resolve(num);
+//     } else {
+//       reject("Input is not a number");
+//     }
+//   });
+// }
+// favouriteNumber(5)
+//   .then((result1) => {
+//     result1 = result1 + 2;
+//     console.log(result1);
+//     return result1;
+//   })
+//   .then((result2) => {
+//     result2 = result2 + 3;
+//     console.log(result2);
+//     return result2;
+//   })
+//   .then((result3) => {
+//     result3 = result3 + 4;
+//     console.log(result3);
+//     return result3;
+//   })
+//   .then((result4) => {
+//     result4 = result4 + 5;
+//     console.log(result4);
+//     return result4;
+//   })
+//   .then((result5) => {
+//     result5 = result5 + 6;
+//     console.log(result5);
+//     return result5;
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+//////why above code and below code are working the same?However first code is better
+///// to write .It is good practice.
+
+// function favouriteNumber(num) {
+//   return new Promise((resolve, reject) => {
+//     if(typeof num==='number'){
+//       resolve(num)
+//     }
+//     else{
+//       reject("Input is not a number")
+//     }
+//   })
+//     .then((result1) => {
+//       result1 = result1 + 2;
+//       console.log(result1);
+//       return result1;
+//     })
+//     .then((result2) => {
+//       result2 = result2 + 3;
+//       console.log(result2);
+//       return result2;
+//     })
+//     .then((result3) => {
+//       result3 = result3 + 4;
+//       console.log(result3);
+//       return result3;
+//     })
+//     .then((result4) => {
+//       result4 = result4 + 5;
+//       console.log(result4);
+//       return result4;
+//     })
+//     .then((result5) => {
+//       result5 = result5 + 6;
+//       console.log(result5);
+//       return result5;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
+// favouriteNumber(5);
+// // favouriteNumber("hi");
+
+// // //// Make a similar promise chain in which you are passing a number in a fn.
+// // //// In that fn you are making promise and its chaining. Do increment that number
+// // //// by 2 in every make aleast 5 .thens in the chain.Attach .catch() block too.
+// let fn = (num) => {
+//   return new Promise((resolve, reject) => {
+//     if (typeof num === "number") {
+//       resolve(num);
+//     } else {
+//       reject("some error");
+//     }
+//   });
+// };
+// fn(5)
+//   .then((result1) => {
+//     console.log(result1);
+//     return result1+2;
+//   })
+//   .then((result2) => {
+//     console.log(result2);
+//     result2 = result2 + 2;
+//     return result2;
+//   })
+//   .then((result3) => {
+//     console.log(result3);
+//     result3 = result3 + 2;
+//     return result3;
+//   })
+//   .then((result4) => {
+//     console.log(result4);
+//     result4 = result4 + 2;
+//     return result4;
+//   })
+//   .then((result5) => {
+//     console.log(result5);
+//     result5 = result5 + 2;
+//     return result5;
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+// //// Make a promise chaining by making a function passing a number to it and make
+// //// atleast 6 .then.And then throw an error at 4th .then and catch the error in
+// //// the catch block.
+
+// let fn = (num) => {
+//   return new Promise((resolve, reject) => {
+//     if (typeof num === "number") {
+//       resolve(num);
+//     } else {
+//       reject("some error");
+//     }
+//   });
+// };
+// fn(5)
+//   .then((result1) => {
+//     console.log(result1);
+//     return result1 + 2;
+//   })
+//   .then((result2) => {
+//     console.log(result2);
+//     result2 = result2 + 2;
+//     return result2;
+//   })
+//   .then((result3) => {
+//     console.log(result3);
+//     result3 = result3 + 2;
+//     return result3;
+//   })
+//   .then((result4) => {
+//     console.log(result4);
+//     result4 = result4 + 2;
+//     throw "something went wrong";
+//     return result4;
+//   })
+//   .then((result5) => {
+//     console.log(result5);
+//     result5 = result5 + 2;
+//     return result5;
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+// //// async await
+
+///// async
+// const getData = async () => {
+//   let data = "Hello World";
+//   return data;
+// };
+// getData().then((data) => console.log(data));
+
+// //// Make an asynchronous function returning a number.Collect it in 5 different
+// //// .then() and increment it by 3 everytime and print it too.But in 3rd .then()
+// //// throw an error and collect it in catch block.
+// let printNumber = async () => {
+//   let num = 5;
+//   return 5;
+// };
+// printNumber()
+//   .then((num) => {
+//     num = num + 3;
+//     console.log(num);
+//     return num;
+//   })
+//   .then((num) => {
+//     num = num + 3;
+//     console.log(num);
+//     return num;
+//   })
+//   .then((num) => {
+//     num = num + 3;
+//     console.log(num);
+//     throw "Something went wrong!";
+//   })
+//   .then((num) => {
+//     num = num + 3;
+//     console.log(num);
+//     return num;
+//   })
+//   .then((num) => {
+//     num = num + 3;
+//     console.log(num);
+//     return num;
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+// //// Await
+// const getData = async () => {
+//   let y = await "Hello World";
+//   console.log(y);
+// };
+// console.log(1);
+// getData();
+// console.log(2);
+
+// //// Demonstrate async and await in a simple fn print things and prove await functionality.
+// const fun = async () => {
+//   let num = 50;
+//   await ((num) => {
+//     return num * num * num;
+//   })(num);
+//   console.log(num);////third printed
+// };
+// console.log("Hello World");////first printed
+// fun();
+// console.log(1);////second printed
+
+////// await
+// async function a(){
+// const data = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+// const response = await data.json();
+// console.log(response)
+// }
+// a();
+
+// ////Promise.all
+// ////In the following code which line will run first, mentor told that line number
+// //// 2092 will run first,i.e., display() will run first, but why?
+
+// function asynchronous_operational_mehtod() {
+//   let first_promise = new Promise((resolve, reject) => resolve("Hello"));
+//   let second_promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve(" yo ");
+//     }, 1000);
+//   });
+//   let combined_promise = Promise.all([first_promise, second_promise]);
+//   return combined_promise;
+// }
+// async function display() {
+//   let data = await asynchronous_operational_mehtod();
+//   console.log(data);
+// }
+// display();
+
+// //// Make a async function and call a function inside it which returns a single promise
+// //// made up of 4 promises.
+// //// -simple resolved promise value - "Batman"
+// //// -simple resolved promise value after 3 seconds- "Superman"
+// //// -simple resolved promise value after 2 seconds- "wonderwoman"
+// //// promise doing something mathematical comparision in it and then resolving it
+// //// Use Promise.all to make a promise out of them return it and print it.
+
+// function heroes() {
+//   return Promise.all([
+//     Promise.resolve("Batman"),
+//     new Promise((resolve) => setTimeout(() => resolve("Superman"), 3000)),
+
+//     new Promise((resolve) => setTimeout(() => resolve("Wonderwoman"), 2000)),
+
+//     new Promise((resolve) => {
+//       const maths = 25 + 5 == 30;
+//       resolve(maths);
+//     }),
+//   ]);
+// }
+
+// async function displayHeros() {
+//   const promise = await heroes();
+//   console.log(promise);
+// }
+
+// displayHeros();
+
+// //// Make atleast 6 promises with setTimeout for each one and resolve them after
+// //// 1s,2s,1s,3s,1s,1s. Make a collective promise using all promises. And print
+// //// 1st,3rd and 4th promise only.
+// let promise1 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve(5);
+//   }, 1000);
+// });
+// let promise2 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve(6);
+//   }, 2000);
+// });
+// let promise3 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("hello");
+//   }, 1000);
+// });
+// let promise4 = new Promise((resolve) => {
+//   // throw "somethong went wrong!";
+//   setTimeout(() => {
+//     resolve("Tarun");
+//   }, 3000);
+// });
+// let promise5 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve(10);
+//   }, 1000);
+// });
+// let promise6 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve(2);
+//   }, 1000);
+// });
+
+// const collectivePromise = Promise.all([
+//   promise1,
+//   promise2,
+//   promise3,
+//   promise4,
+//   promise5,
+//   promise6,
+// ])
+//   .then((result) => {
+//     console.log(result); //[ 5, 6, 'hello', 'Tarun', 10, 2 ]
+//     console.log(result[0]);
+//     console.log(result[2]);
+//     console.log(result[3]);
+//     return result;
+//   })
+
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+// ///// In the above code we will throw error in 4th promise and see what happens
+// let promise1 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve(5);
+//   }, 1000);
+// });
+// let promise2 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve(6);
+//   }, 2000);
+// });
+// let promise3 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("hello");
+//   }, 1000);
+// });
+// let promise4 = new Promise((resolve) => {
+//   // throw "somethong went wrong!";  or
+
+//   setTimeout(() => {
+//     resolve("Tarun");
+//   }, 3000);
+// });
+// let promise5 = new Promise((resolve,reject) => {
+//   setTimeout(() => {
+//     reject(new Error("some error occured!"));
+//   }, 1000);
+// });
+// let promise6 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve(2);
+//   }, 1000);
+// });
+
+// const collectivePromise = Promise.all([
+//   promise1,
+//   promise2,
+//   promise3,
+//   promise4,
+//   promise5,
+//   promise6,
+// ])
+//   .then((result) => {
+//     console.log(result); //[ 5, 6, 'hello', 'Tarun', 10, 2 ]
+//     console.log(result[0]);
+//     console.log(result[2]);
+//     console.log(result[3]);
+//     return result;
+//   })
+
+//   .catch((error) => {
+//     console.log(error);
+//   }); ////Promise.all() waits for all the promises to either resolve or for
+//   //// any one of them to reject. If any promise in the array rejects, 
+//   //// Promise.all() immediately rejects with that error, and the .catch() 
+//   ////block is executed.
+//   //// The catch() method is executed because promise4 is rejected right away, 
+//   //// causing the entire collectivePromise to be rejected. When a promise in 
+//   //// Promise.all() rejects, it bypasses the .then() block and goes directly to
+//   ////  the .catch() block.
+
+
+
+///// Question asked by flipkart for SDE-1 role:-
+//// Make atleast 4 promises. Resolve every promise except the third one. 
+//// Throw an error in the 3rd promise after a delay of 1 second. Make other
+//// promises wait for 2 sec to resolve each promise.Using Promise.all handle
+//// that error.
+
+const promise1 = new Promise((resolve)=>{
+  
+})
