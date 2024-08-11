@@ -2230,22 +2230,143 @@
 //   .catch((error) => {
 //     console.log(error);
 //   }); ////Promise.all() waits for all the promises to either resolve or for
-//   //// any one of them to reject. If any promise in the array rejects, 
-//   //// Promise.all() immediately rejects with that error, and the .catch() 
+//   //// any one of them to reject. If any promise in the array rejects,
+//   //// Promise.all() immediately rejects with that error, and the .catch()
 //   ////block is executed.
-//   //// The catch() method is executed because promise4 is rejected right away, 
-//   //// causing the entire collectivePromise to be rejected. When a promise in 
+//   //// The catch() method is executed because promise4 is rejected right away,
+//   //// causing the entire collectivePromise to be rejected. When a promise in
 //   //// Promise.all() rejects, it bypasses the .then() block and goes directly to
 //   ////  the .catch() block.
 
+// // ///// Question asked by flipkart for SDE-1 role:-
+// // //// Make atleast 4 promises. Resolve every promise except the third one.
+// // //// Throw an error in the 3rd promise after a delay of 1 second. Make other
+// // //// promises wait for 2 sec to resolve each promise.Using Promise.all handle
+// // //// that error.
+
+// const promise1 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("Hello");
+//   }, 10000);
+// });
+// const promise2 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("Welcome");
+//   }, 2000);
+// });
+// const promise3 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     // resolve("you")
+//     reject("Something went wrong!");
+//   }, 1000);
+// });
+// const promise4 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("to");
+//   }, 2000);
+// });
+// const promise5 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("javascript");
+//   }, 2000);
+// });
+// const allPromise = Promise.all([
+//   promise1,
+//   promise2,
+//   promise3,
+//   promise4,
+//   promise5,
+// ]);
+// allPromise
+//   .then((message) => {
+//     console.log(message);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   }); ////When Promise.all() is called, all the promises
+// ////(promise1, promise2, promise3, promise4, and promise5) start executing
+// //// at the same time, not one after the other.
+
+///// If we print something in every promise in above example, then even after
+////  the third promise rejects all promises print its respective dialogue
+/////  because all promises start executing at the same time, for example:
+
+// const promise1 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("Hello");
+//     console.log("hello");
+//   }, 10000);
+// });
+// const promise2 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("Welcome");
+//     console.log("welcome");
+//   }, 2000);
+// });
+// const promise3 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     // resolve("you")
+//     reject("Something went wrong!");
+//     console.log("rejected promise");
+//   }, 1000);
+// });
+// const promise4 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("to");
+//     console.log("to");
+//   }, 2000);
+// });
+// const promise5 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("javascript");
+//     console.log("javascript");
+//   }, 2000);
+// });
+// const allPromise = Promise.all([
+//   promise1,
+//   promise2,
+//   promise3,
+//   promise4,
+//   promise5,
+// ]);
+// allPromise
+//   .then((message) => {
+//     console.log(message);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+// ////When Promise.all() is called, all the promises
+// ////(promise1, promise2, promise3, promise4, and promise5) start executing
+// //// at the same time, not one after the other.
+
+// //ouput will be as follows:
+// // rejected promise
+// // Something went wrong!
+// // welcome
+// // to
+// // javascript
+// // hello
+
+// //// This question was asked in an interview of a mobile company
+// //// URL--> We have a json object. You have to access a property in that json object.
+// //// How would you do that?
+
+// let fetchData = async () => {
+//   const data = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+//   //// fetch() will return a resolved promise
+//   const response = await data.json();
+//   console.log(response);
+//   //// response = { userId: 1, id: 1, title: 'delectus aut autem', completed: false }
+//   console.log(response.title);
+// };
+// fetchData();
 
 
-///// Question asked by flipkart for SDE-1 role:-
-//// Make atleast 4 promises. Resolve every promise except the third one. 
-//// Throw an error in the 3rd promise after a delay of 1 second. Make other
-//// promises wait for 2 sec to resolve each promise.Using Promise.all handle
-//// that error.
+//// You are given an array [32,43,55,66,7].Multiply each element by 3 using
+//// map then filter all elements which are divisible by 2. Then sum all the 
+//// elements using reduce. Use only polyfills. Don't use inbuilt functions.
+//// solution for this  question is in 27 July chatApp video lecture at 2:56:00
 
-const promise1 = new Promise((resolve)=>{
-  
-})
+
