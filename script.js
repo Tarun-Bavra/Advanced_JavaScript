@@ -2363,10 +2363,199 @@
 // };
 // fetchData();
 
-
 //// You are given an array [32,43,55,66,7].Multiply each element by 3 using
-//// map then filter all elements which are divisible by 2. Then sum all the 
+//// map then filter all elements which are divisible by 2. Then sum all the
 //// elements using reduce. Use only polyfills. Don't use inbuilt functions.
 //// solution for this  question is in 27 July chatApp video lecture at 2:56:00
 
+//// Given a url:'www.random.com', please print json body of this object
+////  let obj = {
+////       map:[{you:batman},{we:superman},{help:wonderwoman},{hey:[1,2,3,4,{toy:{u:7}}]}]
+////            }
+//// fetch "7" from the obove object and print it.
 
+// let obj = {
+//   map: [
+//     { you: "batman" },
+//     { we: "superman" },
+//     { help: "wonderwoman" },
+//     { hey: [1, 2, 3, 4, { toy: { u: 7 } }] },
+//   ],
+// };
+// async function fetchData() {
+//   const url = "https://jsonplaceholder.typicode.com/todos/1";
+//   const response = await fetch(url);
+//   const data = await response.json();
+//   const cloneobj = JSON.parse(JSON.stringify(obj));
+//   data.clone = cloneobj
+//   console.log(data.clone.map[3].hey[4].toy.u);
+// }
+// fetchData()////this is written by me
+
+// //////Below code is given by instructor from a student without running may be wrong
+// const fetchData = async ()=>{
+//     const response = await fetch('www.random.com')
+//     const data = await response.json()
+//     console.log(data.map[3].hey[4].toy.u)
+// }
+// fetchData()
+
+///////////////////////////////////////////////////////////
+//// export and import
+//// export an array
+// export let months1 = [
+//   "Jan",
+//   "Feb",
+//   "Mar",
+//   "April",
+//   "May",
+//   "June",
+//   "July",
+//   "Aug",
+//   "Sept",
+//   "Oct",
+//   "Nov",
+//   "Dec",
+// ];
+// //// export a variable
+// export const MUDULES_BECAME_STANDARD_YEAR1 = 2015;
+// //// export a class
+// export class User1 {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+// //// export functions
+// function sayHi() {
+//   console.log(`Hello ${user}!`);
+// }
+
+// function sayBye() {
+//   console.log(`Bye ${user}!`);
+// }
+
+// export { sayHi, sayBye };
+
+// ///////////////////////////////////////////////////////////////
+// //// FILE1.JS
+// function sayHi() {
+//   console.log(`Hello ${user}!`);
+// }
+
+// function sayBye() {
+//   console.log(`Bye ${user}!`);
+// }
+// export { sayHi, sayBye };
+// /////////////////////////////////////////////////////////
+// ////FILE54.JS
+// import { sayHi, sayBye } from "./FILE1.JS"; ////when both files are in same folder
+// //// If your file is in some other foler then you will have
+// ////to write './Foldername/FILE1.JS'
+// //// If your file is inside other folder's folder(folder inside folder)
+// //// then you write './foldername/insideFoldername/FILE1.JS'
+
+// sayHi("John"); //// Hello, John!
+// sayBye("John"); //// Bye, John!
+
+////////////////////////////////////////////////////////////////////////
+
+// // FILE1.JS
+// function sayHi() {
+//   console.log(`Hello ${user}!`);
+// }
+
+// function sayBye() {
+//   console.log(`Bye ${user}!`);
+// }
+// export { sayHi, sayBye };
+
+// //////////////////////////////////////////////////////////////////////////////////
+// ///   import * as say from './FILE1.JS'
+
+// say.sayHi("John");
+// say.sayBye("John");
+
+// ////With Default:
+// //// Modules provide a special export default ("the default export") syntax to make the
+// //// "one thing per module" way look better.Put export default before the entity
+// //// to export:
+// //// user.js
+// export default class User {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+// //// There may be only one export default per file.
+// //// …And then import it without curly braces:
+
+// //// main.js
+// import user from "./user.js"; //not {User}, just user
+// new User("John");
+// ////Imports without curly braces look nicer.
+// //// A common mistake when starting to use modules is to forget
+// //// curly braces at all. So, remember, import needs curly braces for
+// //// named exports and doesn’t need them for the default one.
+
+// //// Debouncing
+// //// This is asked 7 times out of 10 interviews.//IMPORTANT//
+// //// Demonstrate debouncing.
+
+// let counter = 0;
+// const getData = () => {
+//   console.log("retrieving data", counter++);
+// };
+// const debounce = (getData_fn, delay) => {
+//   let timerID;
+//   return function () {
+//     let context = this;
+//     let args = arguments;
+//     clearTimeout(timerID);
+//     timerID = setTimeout(() => {
+//       getData_fn.apply(this, args); // Use `context` instead of `this` to preserve context
+//     }, delay);
+//   };
+// };
+// const better_function = debounce(getData, 1000);
+
+//// Throttling////asked in swiggy's interview(SDE-3, 50LPA)
+
+// let counter = 0;
+// const getData = () => {
+//   console.log("retrieving data", counter++);
+// };
+// function throttle(callback, delay = 1000) {
+//   let shouldWait = false;
+//   return (...args) => {
+//     //betterfn
+//     if (shouldWait) return;
+//     //time difference of 1 sec or 1000ms
+//     callback(...args); //calling callback
+//     shouldWait = true;
+//     setTimeout(() => {
+//       shouldWait = false;
+//     }, delay);
+//   };
+// }
+// const betterfn = throttle(getData, 1000);
+
+// ////practice throttling code
+// let counter = 0;
+// let getData = () => {
+//   console.log("retreiving data", counter++);
+// };
+// let throttle = (callback, delay = 1000) => {
+//   let shouldWait = false;
+//   return (...args) => {
+//     if (shouldWait) return;
+//     callback(...args)
+//     shouldWait = true;
+//     setTimeout(() => {
+//       shouldWait = false;
+//     }, delay);
+//   };
+// };
+// let betterfn = throttle(getData,1000)
+
+
+///// Sockets
+//// we will understand socket by making a small project which is a chat app
