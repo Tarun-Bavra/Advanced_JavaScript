@@ -2558,4 +2558,11 @@
 
 
 ///// Sockets
-//// we will understand socket by making a small project which is a chat app
+//// we will understand socket by making a small project which is a chat app.
+//// refer to notes for github repo of the project.
+
+
+//// Refer to video lectures of May 2024 of Advance Js for extra topics to cover.
+//// Also some topics in greater detail.
+
+//// Module completed.
