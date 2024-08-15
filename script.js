@@ -2556,13 +2556,18 @@
 // };
 // let betterfn = throttle(getData,1000)
 
-
 ///// Sockets
 //// we will understand socket by making a small project which is a chat app.
-//// refer to notes for github repo of the project.
-
+//// refer to notes link below for github repo of the project.
 
 //// Refer to video lectures of May 2024 of Advance Js for extra topics to cover.
 //// Also some topics in greater detail.
 
 //// Module completed.
+
+////link for lecture codes is below:
+
+//// link:
+//// https://docs.google.com/document/d/1E5bOcP9BhfXHEBi1SeFc2McoV_TGypahA28OlBH1HhM/edit?usp=sharing
+
+//// https://docs.google.com/document/d/1E5bOcP9BhfXHEBi1SeFc2McoV_TGypahA28OlBH1HhM/edit?pli=1#heading=h.c96urh6nw75h
