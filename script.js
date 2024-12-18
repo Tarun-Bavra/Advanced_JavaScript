@@ -220,7 +220,7 @@
 // // tarun bavra naval
 // // tarun bavra mawana
 
-//calll method revision
+//call method revision
 // let obj = {
 //   name: "tarun",
 //   lastname: "bavra",
@@ -1137,8 +1137,8 @@
 // }
 // console.log(person.fullname)
 
-// //// Make an object having two key-value pairs. Make values as numbers. Make a getter fn.
-// //// Do multiply these numbers return it and print it outside object.
+// //// Make an object having two key-value pairs. Make values as numbers.
+//// Make a getter fn.Do multiply these numbers return it and print it outside object.
 // const obj = {
 //   num1: 10,
 //   num2: 20,
@@ -1184,7 +1184,7 @@
 //   }
 // }
 // const person = new Human("tarun","bavra")
-// console.log(person.fullName)
+// console.log(person.fullName) 
 
 // ////setter:
 // const person = {
